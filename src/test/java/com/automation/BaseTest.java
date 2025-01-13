@@ -1,5 +1,6 @@
 package com.automation;
 
+import com.automation.listeners.TestNGReportListener;
 import com.automation.utility.DriverManager;
 import com.automation.utility.LoggerUtil;
 import com.automation.utility.Screenshots;
@@ -11,7 +12,8 @@ import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
 
-import static com.automation.listeners.TestNGReportListener.*;
+import static com.automation.listeners.TestNGReportListener.getTest;
+import static com.automation.listeners.TestNGReportListener.setTest;
 import static com.automation.utility.DriverManager.setDriverProp;
 
 public class BaseTest {
@@ -24,7 +26,7 @@ public class BaseTest {
 
         if (getTest() == null) {
             // Handle the case where test was not created yet
-            setTest(getExtent().createTest(getClass().getSimpleName()));
+            setTest(TestNGReportListener.getExtent().createTest(getClass().getSimpleName()));
         }
         LoggerUtil.logStep(getTest(), "Start Browser");
     }

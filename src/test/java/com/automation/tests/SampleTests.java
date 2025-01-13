@@ -3,8 +3,10 @@ package com.automation.tests;
 import com.automation.BaseTest;
 import com.automation.data.booker.SendMessageData;
 import com.automation.entity.booker.BookerEntity;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(com.automation.listeners.TestNGReportListener.class)
 public class SampleTests extends BaseTest {
 
     @Test(description = "Send an enquiry")

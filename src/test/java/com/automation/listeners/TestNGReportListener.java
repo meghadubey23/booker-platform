@@ -25,7 +25,12 @@ public class TestNGReportListener implements ITestListener {
         TestNGReportListener.test = test;
     }
 
-    public static ExtentReports getExtent() {
+    public synchronized static ExtentReports getExtent() {
+        if (extent == null) {
+            ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/ExtentReport.html");
+            extent = new ExtentReports();
+            extent.attachReporter(sparkReporter);
+        }
         return extent;
     }
 
