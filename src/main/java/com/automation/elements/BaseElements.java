@@ -2,6 +2,7 @@ package com.automation.elements;
 
 import com.automation.utility.AssertUtility;
 import com.automation.utility.DriverManager;
+import com.automation.utility.LoggerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,14 +61,14 @@ public abstract class BaseElements {
     public void set(String text) {
         if (text != null) {
             sendKeys(text);
-            System.out.println("Set value of " + getLabel() + " as:" + text);
+            LoggerUtil.logInfo("Set value of " + getLabel() + " as:" + text);
         }
     }
 
     public void set(Boolean action) {
         if (action != null)
             if (action) {
-                System.out.println("Click button :" + getText());
+                LoggerUtil.logInfo("Click button :" + getText());
                 click();
             }
     }

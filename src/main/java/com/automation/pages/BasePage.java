@@ -4,6 +4,7 @@ import com.automation.data.BaseData;
 import com.automation.elements.Static;
 import com.automation.utility.ConfigReader;
 import com.automation.utility.DriverManager;
+import com.automation.utility.LoggerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -34,7 +35,7 @@ public abstract class BasePage {
         pageTitle = driver.getTitle();
         sleep(3000);
         takeScreenshot(driver, screenshotTime());
-        System.out.println("Navigated to '" + pageTitle + "' page.");
+        LoggerUtil.logInfo("Navigated to '" + pageTitle + "' page.");
     }
 
     protected void verifySuccessMessage(String message) {

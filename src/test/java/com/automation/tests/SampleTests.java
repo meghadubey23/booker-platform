@@ -1,14 +1,16 @@
-package com.automation.sample;
+package com.automation.tests;
 
 import com.automation.BaseTest;
 import com.automation.data.booker.SendMessageData;
 import com.automation.entity.booker.BookerEntity;
+import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 public class SampleTests extends BaseTest {
 
     @Test(description = "Send an enquiry")
-    public void dashboardTest() {
+    public void enquiryTest() {
         SendMessageData data = new SendMessageData();
         data.setName("Megha");
         data.setEmail("meghaa.dubey@gmail.com");
@@ -23,5 +25,20 @@ public class SampleTests extends BaseTest {
 
         BookerEntity entity = new BookerEntity(data);
         entity.create();
+    }
+
+    @Test
+    public void testPass() {
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    public void testFail() {
+        Assert.fail("This test is supposed to fail");
+    }
+
+    @Test
+    public void testSkip() {
+        throw new SkipException("This test is skipped");
     }
 }

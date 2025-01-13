@@ -26,7 +26,7 @@ public class Screenshots {
             if (folderExists)
                 FileUtils.deleteDirectory(folder);
             folderExists = false;
-            destinationFile = new File(folderPath + "/" + fileName);
+            destinationFile = new File(folderPath + "/" + test + "-" + fileName);
 
             FileUtils.copyFile(screenshotFile, destinationFile);
         } catch (IOException e) {
